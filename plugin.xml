@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    id="com.WISEMEN.igenioscam"
+    version="1.0.0">
+    
+    <name>Custom Camera</name>
+    <description>PhoneGap plugin to support a custom camera overlay</description>
+    <author>Vote 539 and others</author>
+    
+    <info>
+        This plugin was written with the tutorial found at:
+        http://codrspace.com/vote539/writing-a-custom-camera-plugin-for-phonegap/
+    </info>
+    
+    <js-module src="www/js/igenioscam.js" name="igenioscam">
+        <clobbers target="navigator.igenioscam" />
+    </js-module>
+    
+    <engines>
+        <engine name="cordova" version=">=3.1.0" />
+    </engines>
+    
+    <platform name="ios">
+        
+        <!-- config file -->
+        <config-file target="config.xml" parent="/*">
+            <feature name="igenioscam">
+                <param name="ios-package" value="igenioscam" />
+            </feature>
+        </config-file>
+        
+        <!-- core CustomCamera header and source files -->
+        <header-file src="platforms/ios/igenioscam/Classes/igenioscam.h" />
+        <header-file src="platforms/ios/igenioscam/Classes/igenioscamController.h" />
+        <source-file src="platforms/ios/igenioscam/Classes/igenioscam.m" />
+        <source-file src="platforms/ios/igenioscam/Classes/igenioscamController.m" />
+        <resource-file src="platforms/ios/igenioscam/Classes/igenioscamController.xib" />
+        
+    </platform>
+    
+</plugin>
