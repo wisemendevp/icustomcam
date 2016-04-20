@@ -34,17 +34,17 @@
     // Hide the picker view
     [self.viewController dismissModalViewControllerAnimated:YES];
     
-    NSString* myarraystring = imagePath;
-    NSArray* savearray = [myarraystring componentsSeparatedByString:@","];
+   // NSString* myarraystring = imagePath;
+  //  NSArray* savearray = [myarraystring componentsSeparatedByString:@","];
     
     
-    for(id element in savearray)
-    {
-        NSString* imgstr =element;
-        UIImage *img = [UIImage imageWithContentsOfFile:imgstr];
-        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
+  //  for(id element in savearray)
+   // {
+   //     NSString* imgstr =element;
+   //     UIImage *img = [UIImage imageWithContentsOfFile:imgstr];
+    //    UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
     
-    }
+   // }
     
     
     
