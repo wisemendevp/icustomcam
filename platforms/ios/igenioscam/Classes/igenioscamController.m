@@ -67,6 +67,8 @@
     
    
     UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    
     NSString* string = [self generateRandomString:5];
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
@@ -82,16 +84,26 @@
     NSData* imageData = UIImageJPEGRepresentation(image, 0.5);
      [imageData writeToFile:imagePath atomically:YES];
     NSString * str5 = [defaults objectForKey:@"k1"];
+    //UIImage *img = [UIImage imageWithContentsOfFile:imagePath];
+   // UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
     if([str5 length] == 0)
     {
         [defaults setObject:imagePath forKey:@"k1"];
+       
+    
     }
     if([str5 length] != 0)
     {
         NSString * _sbuffer =   [defaults objectForKey:@"k1"];
         _sbuffer = [_sbuffer stringByAppendingString:@","];
+        
         _sbuffer = [_sbuffer stringByAppendingString:imagePath];
         [defaults setObject:_sbuffer forKey:@"k1"];
+        
+        
+        
+        
+        
       
         
     }

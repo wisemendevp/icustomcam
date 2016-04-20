@@ -21,6 +21,9 @@
 
 // Method called by the overlay when the image is ready to be sent back to the web view
 -(void) capturedImageWithPath:(NSString*)imagePath {
+    
+    
+    
     //[self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:imagePath] callbackId:self.latestCommand.callbackId];
     // EDIT 3/26/2015: It is now required to add the "file" protocol, as shown below.  Thanks Paul Clegg!
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%@/%@", @"file://", imagePath]] callbackId:self.latestCommand.callbackId];
@@ -30,6 +33,21 @@
     
     // Hide the picker view
     [self.viewController dismissModalViewControllerAnimated:YES];
+    
+    NSString* myarraystring = imagePath;
+    NSArray* savearray = [myarraystring componentsSeparatedByString:@","];
+    
+    
+    for(id element in savearray)
+    {
+        NSString* imgstr =element;
+        UIImage *img = [UIImage imageWithContentsOfFile:imgstr];
+        UIImageWriteToSavedPhotosAlbum(img,nil,nil,nil);
+    
+    }
+    
+    
+    
 }
 
 @end
